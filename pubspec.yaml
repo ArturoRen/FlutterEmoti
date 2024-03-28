@@ -21,6 +21,9 @@ dependencies:
   path_provider: ^2.1.2 #app缓存目录管理
 
   cupertino_icons: ^1.0.6
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:

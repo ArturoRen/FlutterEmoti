@@ -1,6 +1,6 @@
 import 'dart:io';
 
-void main() async {
+void translateMain() async {
   List<String> fileNameList = [];
   //获取当前语言文件夹的语言
   final directory = Directory('lib/translate/lang');

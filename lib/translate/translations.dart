@@ -13,12 +13,25 @@ class Messages extends Translations {
   Map<String, Map<String, String>> get keys => {
         'zh_CN': zhCNKeys,
         'en_US': enUSKeys,
+        'ar_SA': zhCNKeys,
       };
 
   static List<Locale> supportedLocales = const [
     Locale('zh', 'CN'),
     Locale('en', 'US'),
+    Locale('ar', 'SA'),
   ];
 
+
+  //默认语言
+  Locale get defaultLanguage => const Locale('zh', 'CN');
+
   //获取当前语言是否左对齐
+  TextDirection getTextDirection(Locale localeLanguage){
+    if(rtlLanguages.contains(localeLanguage.languageCode)){
+      return TextDirection.rtl;
+    }else{
+      return TextDirection.ltr;
+    }
+  }
 }

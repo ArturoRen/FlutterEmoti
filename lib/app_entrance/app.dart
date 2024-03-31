@@ -1,3 +1,4 @@
+import 'package:emoti/global_config/app_global.dart';
 import 'package:emoti/router/router.dart';
 import 'package:emoti/translate/translations.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class AppEntrance extends StatelessWidget {
         ),
         navigatorObservers: [FlutterSmartDialog.observer],
         supportedLocales: Messages.supportedLocales,
-        locale: const Locale('zh', 'CN'),
+        locale: AppGlobal().currentLanguage,
         home: child,
         localizationsDelegates: const [
           GlobalMaterialLocalizations.delegate,
@@ -27,12 +28,17 @@ class AppEntrance extends StatelessWidget {
           GlobalCupertinoLocalizations.delegate,
         ],
         translations: Messages(),
-        fallbackLocale: const Locale('zh', 'CN'),
+        fallbackLocale: Messages().defaultLanguage,
         getPages: AppRoutes().routes,
         initialRoute: AppRoutes().initRoute,
         builder: FlutterSmartDialog.init(
-          builder: (context, child) => SizedBox(
-            child: child,
+          builder: (context, child) => Directionality(
+            textDirection: Messages().getTextDirection(
+              AppGlobal().currentLanguage,
+            ),
+            child: SizedBox(
+              child: child,
+            ),
           ),
         ),
       ),

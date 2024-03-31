@@ -1,4 +1,6 @@
 import 'package:emoti/packages.dart';
+import 'package:emoti/pages/home/home_binding.dart';
+import 'package:emoti/pages/home/home_view.dart';
 import 'package:emoti/pages/splash/splash_binding.dart';
 import 'package:emoti/pages/splash/splash_view.dart';
 
@@ -8,6 +10,7 @@ class AppPaths {
   factory AppPaths() => _instance;
   String splash = '/splash';
   String index = '/index';
+  String home = '/home';
 }
 
 class AppRoutes {
@@ -22,6 +25,11 @@ class AppRoutes {
       name: AppPaths().splash,
       page: () => const SplashView(),
       binding: SplashBinding(),
+    ),
+    GetPage(
+      name: AppPaths().home,
+      page: () => const HomeView(),
+      binding: HomeBinding(),
     ),
   ];
 }

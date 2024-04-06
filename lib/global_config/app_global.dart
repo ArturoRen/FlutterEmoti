@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:emoti/tools/sp_tool/sp_tool.dart';
 import 'package:emoti/translate/translations.dart';
+import 'package:flutter/semantics.dart';
 import 'package:flutter/widgets.dart';
 
 class AppGlobal {
@@ -28,4 +29,9 @@ class AppGlobal {
     await SpTool().init();
     //获取缓存语言
   }
+
+  bool isAccessibilityEnabled() {
+    // 通过WidgetsBinding检查辅助功能是否启用
+    return WidgetsBinding.instance.accessibilityFeatures.boldText;
+}
 }

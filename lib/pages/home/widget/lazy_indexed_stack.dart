@@ -14,15 +14,14 @@ class LazyIndexedStack extends StatefulWidget {
   final IndexedWidgetBuilder itemBuilder;
 
   const LazyIndexedStack(
-      {Key? key,
+      {super.key,
       this.alignment = AlignmentDirectional.topStart,
       this.textDirection,
       this.sizing = StackFit.loose,
       this.index = 0,
       this.reuse = true,
       required this.itemBuilder,
-      required this.itemCount})
-      : super(key: key);
+      required this.itemCount});
 
   @override
   State<StatefulWidget> createState() => _LazyIndexedStackState();
@@ -68,7 +67,7 @@ class _LazyIndexedStackState extends State<LazyIndexedStack> {
   }
 
   @override
-  Widget build(BuildContext context) { 
+  Widget build(BuildContext context) {
     return IndexedStack(
       index: widget.index,
       alignment: widget.alignment,

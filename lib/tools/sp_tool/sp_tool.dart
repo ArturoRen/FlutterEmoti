@@ -18,8 +18,13 @@ class SpTool {
     return res;
   }
 
+  //判断是否已经初始化
+  static bool initialized() => _prefs !=null;
+
   //清空所有
   Future<bool> clearAll() async {
     return await _prefs?.clear() ?? false;
   }
+
+  //获取app本地缓存的语言
 }

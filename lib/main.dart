@@ -1,6 +1,9 @@
-import 'package:emoti/app_entrance/app.dart';
-import 'package:flutter/material.dart';
+import 'package:emoti/packages.dart';
+
+// // 用来创建 LoadBalancer
+// Future<LoadBalancer> loadBalancerCreator =
+//     LoadBalancer.create(2, IsolateRunner.spawn);
 
 void main() {
-  runApp(const AppEntrance());
+  runReportError();
 }

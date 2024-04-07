@@ -1,0 +1,6 @@
+
+
+enum IndexSwiperType{
+  text,
+  link,
+}

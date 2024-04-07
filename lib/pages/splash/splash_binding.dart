@@ -4,6 +4,6 @@ import 'package:emoti/pages/splash/splash_controller.dart';
 class SplashBinding extends Bindings{
   @override
   void dependencies() {
-   Get.lazyPut(() => SplashCOntroller());
+   Get.lazyPut(() => SplashController());
   }
 }

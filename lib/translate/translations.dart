@@ -22,16 +22,35 @@ class Messages extends Translations {
     Locale('ar', 'SA'),
   ];
 
+  //当前选择的语言
+  Locale currentLanguage = const Locale('zh', 'CN');
 
   //默认语言
   Locale get defaultLanguage => const Locale('zh', 'CN');
 
   //获取当前语言是否左对齐
-  TextDirection getTextDirection(Locale localeLanguage){
-    if(rtlLanguages.contains(localeLanguage.languageCode)){
+  TextDirection get getTextDirection {
+    if (rtlLanguages.contains(currentLanguage.languageCode)) {
       return TextDirection.rtl;
-    }else{
+    } else {
       return TextDirection.ltr;
+    }
+  }
+
+  //切换语言采用这个方法
+  Future<void> updateLocale(Locale language) async {
+    if (supportedLocales.contains(language)) {
+      currentLanguage = language;
+      await Get.updateLocale(language);
+      //持久化保存
+      //刷新全部页面的语言
+      Get.offAllNamed('/');
+    } else {
+      currentLanguage = defaultLanguage;
+      await Get.updateLocale(defaultLanguage);
+      //持久化保存
+      //刷新全部页面的语言
+      Get.offAllNamed('/');
     }
   }
 }

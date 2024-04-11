@@ -35,9 +35,7 @@ class AppEntrance extends StatelessWidget {
         initialRoute: AppRoutes().initRoute,
         builder: FlutterSmartDialog.init(
           builder: (context, child) => Directionality(
-            textDirection: Messages().getTextDirection(
-              AppGlobal().currentLanguage,
-            ),
+            textDirection: Messages().getTextDirection,
             child: SizedBox(
               child: child,
             ),

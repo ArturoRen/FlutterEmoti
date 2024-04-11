@@ -1,8 +1,5 @@
-import 'dart:ui';
-
 import 'package:emoti/tools/sp_tool/sp_tool.dart';
 import 'package:emoti/translate/translations.dart';
-import 'package:flutter/semantics.dart';
 import 'package:flutter/widgets.dart';
 
 class AppGlobal {
@@ -17,9 +14,8 @@ class AppGlobal {
   // 是否为release版
   static bool get isRelease => const bool.fromEnvironment("dart.vm.product");
 
-
   //当前语言
-  Locale currentLanguage = Messages().defaultLanguage;
+  Locale get currentLanguage => Messages().currentLanguage;
 
   //初始化方法
   static Future<void> initGlobal() async {
@@ -33,5 +29,5 @@ class AppGlobal {
   bool isAccessibilityEnabled() {
     // 通过WidgetsBinding检查辅助功能是否启用
     return WidgetsBinding.instance.accessibilityFeatures.boldText;
-}
+  }
 }

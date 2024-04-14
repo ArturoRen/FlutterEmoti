@@ -1,12 +1,13 @@
+import 'package:emoti/packages.dart';
+import 'package:emoti/pages/home/child/mine/widget/mine_fun.dart';
+import 'package:emoti/pages/home/child/mine/widget/mine_info.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:get/get.dart';
 
 import 'mine_logic.dart';
 import 'mine_state.dart';
 
 /// @description:
-/// @author 
+/// @author
 /// @date: 2024-04-06 14:41:54
 class MinePage extends StatelessWidget {
   final MineLogic logic = Get.put(MineLogic());
@@ -14,11 +15,32 @@ class MinePage extends StatelessWidget {
 
   MinePage({super.key});
 
+  void a(){
+    debugPrint("------0999");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber,
-      body: Container(),
+      appBar: AppBar(
+        title: Center(
+          child: Text(
+            "Mine".tr,
+            style: context.theme.textTheme.titleLarge,
+          ),
+        ),
+        elevation: 0.0,
+      ),
+      body: const Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          //用户信息
+          MineInfo(),
+          //列表项
+          MineFun(),
+        ],
+      ),
     );
   }
 }

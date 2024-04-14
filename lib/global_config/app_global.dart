@@ -15,7 +15,7 @@ class AppGlobal {
   static bool get isRelease => const bool.fromEnvironment("dart.vm.product");
 
   //当前语言
-  Locale get currentLanguage => Messages().currentLanguage;
+  Locale get currentLanguage => AppTranslations().currentLanguage;
 
   //初始化方法
   static Future<void> initGlobal() async {
@@ -26,7 +26,7 @@ class AppGlobal {
     //获取缓存语言
   }
 
-  bool isAccessibilityEnabled() {
+  bool get isAccessibilityEnabled {
     // 通过WidgetsBinding检查辅助功能是否启用
     return WidgetsBinding.instance.accessibilityFeatures.boldText;
   }

@@ -5,7 +5,7 @@ import 'emoti_logic.dart';
 import 'emoti_state.dart';
 
 /// @description:
-/// @author 
+/// @author
 /// @date: 2024-04-06 15:11:04
 class EmotiPage extends StatelessWidget {
   final EmotiLogic logic = Get.put(EmotiLogic());
@@ -15,8 +15,6 @@ class EmotiPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.red,
-    );
+    return const Scaffold();
   }
 }

@@ -3,10 +3,10 @@ import 'package:emoti/translate/lang/zh_CN.dart';
 import 'package:emoti/packages.dart';
 import 'package:flutter/material.dart';
 
-class Messages extends Translations {
-  static final Messages _instance = Messages._internal();
-  factory Messages() => _instance;
-  Messages._internal();
+class AppTranslations extends Translations {
+  static final AppTranslations _instance = AppTranslations._internal();
+  factory AppTranslations() => _instance;
+  AppTranslations._internal();
 
   //所有语言文件
   @override
@@ -44,13 +44,11 @@ class Messages extends Translations {
       await Get.updateLocale(language);
       //持久化保存
       //刷新全部页面的语言
-      Get.offAllNamed('/');
     } else {
       currentLanguage = defaultLanguage;
       await Get.updateLocale(defaultLanguage);
       //持久化保存
       //刷新全部页面的语言
-      Get.offAllNamed('/');
     }
   }
 }

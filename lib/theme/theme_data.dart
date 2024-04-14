@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:emoti/packages.dart';
 import 'package:flutter/material.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 
@@ -10,11 +13,54 @@ class AppThemeData {
   }
 
   //当前系统主题--默认跟随系统
-  ThemeMode appThemeMode = ThemeMode.system;
+  ThemeMode appThemeMode = ThemeMode.light;
+
+  //app主色调
+  FlexScheme currentScheme = FlexScheme.amber;
+
+  //改变模式
+  Future<void> changeThemeMode({
+    required BuildContext context,
+    ThemeMode? appThemeModeParams,
+    bool restart = false,
+  }) async {
+    appThemeModeParams ??= appThemeMode;
+    Get.changeThemeMode(appThemeModeParams);
+    appThemeMode = appThemeModeParams;
+    if (restart) {
+      //强制触发 build
+      await Get.forceAppUpdate();
+    }
+  }
+
+  //改变主题
+  Future<void> changeTheme({
+    required BuildContext context,
+    FlexScheme? flexSchemeParams,
+    bool restart = false,
+  }) async {
+    flexSchemeParams ??= currentScheme;
+    //更新当前的值
+    currentScheme = flexSchemeParams;
+    //获取当前系统模式
+    //当前是否夜间模式
+    bool isDark = AppThemeData().appThemeMode == ThemeMode.dark;
+    if (isDark) {
+      //夜间模式
+      Get.changeTheme(appDarkThemeData(flexSchemeParams));
+    } else {
+      //白天模式
+      Get.changeTheme(appLightThemeData(flexSchemeParams));
+    }
+    if (restart) {
+      //强制触发 build
+      await Get.forceAppUpdate();
+    }
+  }
 
   ThemeData appLightThemeData(FlexScheme? scheme) {
     return FlexThemeData.light(
-      scheme: scheme,
+      scheme: scheme ?? currentScheme,
       subThemesData: const FlexSubThemesData(
         interactionEffects: false,
       ),
@@ -27,7 +73,7 @@ class AppThemeData {
 
   ThemeData appDarkThemeData(FlexScheme? scheme) {
     return FlexThemeData.dark(
-      scheme: scheme,
+      scheme: scheme ?? currentScheme,
       useMaterial3: true,
       subThemesData: const FlexSubThemesData(
         interactionEffects: false,

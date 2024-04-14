@@ -13,7 +13,7 @@ class IndexSwiperWidget extends GetView<IndexLogic> {
       child: Center(
         child: Swiper(
           itemBuilder: (BuildContext context, int index) {
-            return _buildSwiperItem();
+            return _buildSwiperItem(context: context);
           },
           autoplay: false,
           itemCount: 1,
@@ -27,10 +27,10 @@ class IndexSwiperWidget extends GetView<IndexLogic> {
   }
 
   //轮播选项
-  Widget _buildSwiperItem() {
+  Widget _buildSwiperItem({required BuildContext context}) {
     return Card(
       elevation: 10, //设置卡片阴影的深度
-      color: Get.theme.primaryColor,
+      color: context.theme.primaryColor,
       shadowColor: Colors.black.withOpacity(0.45),
       shape: RoundedRectangleBorder(
         //设置卡片圆角

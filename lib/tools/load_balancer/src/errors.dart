@@ -7,6 +7,8 @@
 /// The [MultiError] class combines multiple errors into one object,
 /// and the [MultiError.wait] function works like [Future.wait] except
 /// that it returns all the errors.
+library;
+
 
 
 import 'dart:async';

@@ -41,7 +41,6 @@ class ThemeModeSetting extends StatelessWidget {
                         );
                       }
                   }
-                  ;
                 }),
                 Expanded(
                   child: Padding(

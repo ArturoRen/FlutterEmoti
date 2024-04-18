@@ -5,6 +5,7 @@ import 'package:emoti/pages/home/home_binding.dart';
 import 'package:emoti/pages/home/home_view.dart';
 import 'package:emoti/pages/splash/splash_binding.dart';
 import 'package:emoti/pages/splash/splash_view.dart';
+import 'package:emoti/widgets/pop_scope/pop_scope.dart';
 
 class AppPaths {
   static final AppPaths _instance = AppPaths._();
@@ -33,7 +34,7 @@ class AppRoutes {
     ),
     GetPage(
       name: AppPaths().home,
-      page: () => const HomeView(),
+      page: () => const PopScopeRoute(child: HomeView()),
       binding: HomeBinding(),
     ),
     GetPage(

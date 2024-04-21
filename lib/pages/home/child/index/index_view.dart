@@ -1,4 +1,6 @@
 import 'package:emoti/packages.dart';
+import 'package:emoti/pages/home/child/index/widget/index_help_menu/index_help_menu.dart';
+import 'package:emoti/pages/home/child/index/widget/index_record/index_record.dart';
 import 'package:emoti/pages/home/child/index/widget/index_swiper.dart';
 import 'package:flutter/material.dart';
 
@@ -11,9 +13,9 @@ import 'index_state.dart';
 class IndexPage extends StatelessWidget {
   final IndexLogic logic = Get.put(IndexLogic());
   final IndexState state = Get.find<IndexLogic>().state;
-
   IndexPage({super.key});
 
+  final ScrollController scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,13 +25,18 @@ class IndexPage extends StatelessWidget {
           left: 16,
           right: 16,
         ),
-        child: Column(
-          children: [
-           const IndexSwiperWidget(),
-            Expanded(
-              child: Container(),
-            ),
-          ],
+        child: SingleChildScrollView(
+          controller: scrollController,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const IndexSwiperWidget(),
+              const IndexRecoed(),
+              IndexHelpMenu(
+                scrollController: scrollController,
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -8,19 +8,23 @@ class IndexSwiperWidget extends GetView<IndexLogic> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.infinity,
-      height: 220.w,
-      child: Center(
-        child: Swiper(
-          itemBuilder: (BuildContext context, int index) {
+      height: 260,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 35),
+        child: AppinioSwiper(
+          cardCount: 10,
+          backgroundCardCount: 2,
+          backgroundCardScale: 0.91,
+          backgroundCardOffset: const Offset(0, 16),
+          swipeOptions: const SwipeOptions.only(
+            up: true,
+            right: true,
+            left: true,
+            down: true,          ),
+          loop: true,
+          cardBuilder: (BuildContext context, int index) {
             return _buildSwiperItem(context: context);
           },
-          autoplay: false,
-          itemCount: 1,
-          itemWidth: double.infinity,
-          itemHeight: 190.w,
-          scale: 0.8,
-          layout: SwiperLayout.TINDER,
         ),
       ),
     );
@@ -36,7 +40,7 @@ class IndexSwiperWidget extends GetView<IndexLogic> {
         //设置卡片圆角
         borderRadius: BorderRadius.circular(16),
       ),
-      margin: const EdgeInsets.all(3),
+      // margin: const EdgeInsets.all(3),
       child: const Padding(
         padding: EdgeInsets.all(16),
         child: Column(

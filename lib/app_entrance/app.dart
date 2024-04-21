@@ -1,7 +1,6 @@
 import 'package:emoti/global_config/app_global.dart';
 import 'package:emoti/router/router.dart';
 import 'package:emoti/translate/translations.dart';
-import 'package:emoti/widgets/pop_scope/pop_scope.dart';
 import 'package:flutter/material.dart';
 import 'package:emoti/packages.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';

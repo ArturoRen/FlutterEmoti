@@ -3,7 +3,7 @@ export 'package:flutter_screenutil/flutter_screenutil.dart';
 export 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 export  'package:get/get.dart';
 export 'package:shared_preferences/shared_preferences.dart';
-export 'package:card_swiper/card_swiper.dart';
+export 'package:appinio_swiper/appinio_swiper.dart';
 //tool
 export 'package:emoti/tools/smart_dialog/smart_dialog.dart';
 //isolate
@@ -17,3 +17,7 @@ export 'package:emoti/extension/function_extension.dart';
 export 'package:emoti/extension/string_extension.dart';
 //主题
 export 'package:emoti/theme/theme_data.dart';
+//
+export 'package:emoti/constants/assets.dart';
+//占位widget
+export 'package:emoti/widgets/placeholder/placeholder.dart';

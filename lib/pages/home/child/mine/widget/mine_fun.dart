@@ -8,19 +8,15 @@ class MineFun extends GetView<MineLogic> {
   @override
   Widget build(BuildContext context) {
     return Flexible(
-      child: Container(
+      child: Card(
         margin: const EdgeInsets.symmetric(
           horizontal: 16,
           vertical: 6,
         ),
-        decoration: BoxDecoration(
-          color: context.theme.primaryColor,
-          borderRadius: BorderRadius.circular(8),
-        ),
         child: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 16,
-            vertical:6,
+            vertical: 6,
           ),
           child: ListView.separated(
             shrinkWrap: true,
@@ -35,12 +31,16 @@ class MineFun extends GetView<MineLogic> {
                     children: [
                       Icon(item.icon),
                       Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: Text(
-                            item.text,
-                            style: context.theme.textTheme.bodyLarge,
-                          ),
+                        child: Builder(
+                          builder: (context) {
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 16),
+                              child: Text(
+                                item.text,
+                                style: context.theme.textTheme.bodyMedium,
+                              ),
+                            );
+                          }
                         ),
                       ),
                       const Icon(
@@ -53,13 +53,17 @@ class MineFun extends GetView<MineLogic> {
             },
             itemCount: controller.state.mineConfigList.length,
             separatorBuilder: (BuildContext context, int index) {
-              return Container(
-                height: 1,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: context.theme.textTheme.bodyLarge?.color,
-                  borderRadius: BorderRadius.circular(1),
-                ),
+              return Builder(
+                builder: (context) {
+                  return Container(
+                    height: 1,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: context.theme.textTheme.bodyLarge?.color,
+                      borderRadius: BorderRadius.circular(1),
+                    ),
+                  );
+                }
               );
             },
           ),

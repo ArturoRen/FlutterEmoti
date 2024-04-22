@@ -28,8 +28,9 @@ dependencies:
   flex_color_scheme: ^7.3.1 # 主题
   showcaseview: ^2.0.3 #帮助引导
   appinio_swiper: ^2.1.1 #轮播图
-  freezed_annotation: ^2.4.1
-  json_annotation: ^4.8.1
+  freezed_annotation: ^2.4.1 #mode类
+  json_annotation: ^4.8.1 #json
+  auto_size_text: ^3.0.0 #文本自动大小
 
 dev_dependencies:
   flutter_test:

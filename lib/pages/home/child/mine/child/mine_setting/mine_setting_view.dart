@@ -27,21 +27,29 @@ class MineSettingPage extends GetView<MineSettingLogic> {
         centerTitle: true,
         elevation: 0.0,
       ),
-      body: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: context.theme.primaryColor,
-          borderRadius: BorderRadiusDirectional.circular(8)
-        ),
-        padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 6),
+      body: Card(
+        elevation: 1.0,
+        shadowColor: context.theme.cardColor,
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
-        child: ListView(
-          shrinkWrap: true,
-          children: const [
-            ThemeSetting(),
-            ThemeModeSetting(),
-            LanguageSetting(),
-          ],
+        child: Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadiusDirectional.circular(
+              8,
+            ),
+          ),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 16,
+            vertical: 6,
+          ),
+          child: ListView(
+            shrinkWrap: true,
+            children: const [
+              ThemeSetting(),
+              ThemeModeSetting(),
+              LanguageSetting(),
+            ],
+          ),
         ),
       ),
     );

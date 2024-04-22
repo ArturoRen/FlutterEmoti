@@ -4,6 +4,8 @@ export 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 export  'package:get/get.dart';
 export 'package:shared_preferences/shared_preferences.dart';
 export 'package:appinio_swiper/appinio_swiper.dart';
+export 'package:auto_size_text/auto_size_text.dart';
+export 'package:showcaseview/showcaseview.dart';
 //tool
 export 'package:emoti/tools/smart_dialog/smart_dialog.dart';
 //isolate
@@ -21,3 +23,4 @@ export 'package:emoti/theme/theme_data.dart';
 export 'package:emoti/constants/assets.dart';
 //占位widget
 export 'package:emoti/widgets/placeholder/placeholder.dart';
+export 'package:emoti/utils/showcaseview_util.dart';

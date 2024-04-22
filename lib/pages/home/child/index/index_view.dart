@@ -32,6 +32,24 @@ class IndexPage extends StatelessWidget {
             children: [
               const IndexSwiperWidget(),
               const IndexRecoed(),
+              Showcase(
+                key: ShowcaseViewUtil.one,
+                title: 'Menu',
+                description: 'Click here to see menu options',
+                child: GestureDetector(
+                  onTap: () {
+                    ShowCaseWidget.of(context).startShowCase(
+                      [
+                        ShowcaseViewUtil.one,
+                      ],
+                    );
+                  },
+                  child: const Icon(
+                    Icons.menu,
+                    color: Colors.black45,
+                  ),
+                ),
+              ),
               IndexHelpMenu(
                 scrollController: scrollController,
               ),

@@ -1,4 +1,5 @@
 import 'package:emoti/packages.dart';
+import 'package:emoti/pages/home/child/index/widget/index_help_menu/upgrade_help.dart';
 import 'package:flutter/material.dart';
 
 class IndexHelpMenu extends StatefulWidget {
@@ -10,6 +11,8 @@ class IndexHelpMenu extends StatefulWidget {
 }
 
 class _IndexHelpMenuState extends State<IndexHelpMenu> {
+  List<Widget> helpList = [const IndexUpgradeHelp()];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -30,15 +33,12 @@ class _IndexHelpMenuState extends State<IndexHelpMenu> {
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3, //横轴三个子widget
             childAspectRatio: 0.6, //宽高比为1时，子widget
-            mainAxisSpacing: 6,
-            crossAxisSpacing: 5,
+            mainAxisSpacing: 16,
+            crossAxisSpacing: 16,
           ),
-          itemCount: 3,
+          itemCount: helpList.length,
           itemBuilder: (context, index) {
-            return Container(
-              color: Colors.red,
-              child: const Text('23'),
-            );
+            return helpList[index];
           },
         ),
       ],

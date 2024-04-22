@@ -12,10 +12,9 @@ import 'mine_state.dart';
 class MinePage extends StatelessWidget {
   final MineLogic logic = Get.put(MineLogic());
   final MineState state = Get.find<MineLogic>().state;
-
   MinePage({super.key});
 
-  void a(){
+  void a() {
     debugPrint("------0999");
   }
 

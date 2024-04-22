@@ -34,7 +34,6 @@ class IndexSwiperWidget extends GetView<IndexLogic> {
   Widget _buildSwiperItem({required BuildContext context}) {
     return Card(
       elevation: 10, //设置卡片阴影的深度
-      color: context.theme.primaryColor,
       shadowColor: Colors.black.withOpacity(0.45),
       shape: RoundedRectangleBorder(
         //设置卡片圆角

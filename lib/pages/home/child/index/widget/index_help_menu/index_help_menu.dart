@@ -1,4 +1,5 @@
 import 'package:emoti/packages.dart';
+import 'package:emoti/pages/home/child/index/widget/index_help_menu/boarding_help.dart';
 import 'package:emoti/pages/home/child/index/widget/index_help_menu/upgrade_help.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,10 @@ class IndexHelpMenu extends StatefulWidget {
 }
 
 class _IndexHelpMenuState extends State<IndexHelpMenu> {
-  List<Widget> helpList = [const IndexUpgradeHelp()];
+  List<Widget> helpList = const [
+    IndexUpgradeHelp(),
+    BoardingHelpWidget(),
+  ];
 
   @override
   Widget build(BuildContext context) {

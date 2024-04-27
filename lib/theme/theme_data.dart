@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:emoti/app_entrance/app.dart';
 import 'package:emoti/packages.dart';
 import 'package:flutter/material.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
@@ -14,7 +13,7 @@ class AppThemeData {
   }
 
   //当前系统主题--默认跟随系统
-  ThemeMode appThemeMode = ThemeMode.light;
+  ThemeMode appThemeMode = ThemeMode.system;
 
   //app主色调
   FlexScheme currentScheme = FlexScheme.amber;
@@ -28,7 +27,6 @@ class AppThemeData {
     appThemeModeParams ??= appThemeMode;
     Get.changeThemeMode(appThemeModeParams);
     appThemeMode = appThemeModeParams;
-    appEntranceController().update();
     if (restart) {
       //强制触发 build
       await Get.forceAppUpdate();
@@ -54,7 +52,6 @@ class AppThemeData {
       //白天模式
       Get.changeTheme(appLightThemeData(flexSchemeParams));
     }
-    appEntranceController().update();
     if (restart) {
       //强制触发 build
       await Get.forceAppUpdate();

@@ -11,20 +11,25 @@ class IndexSwiperWidget extends GetView<IndexLogic> {
       height: 260,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 35),
-        child: AppinioSwiper(
-          cardCount: 10,
-          backgroundCardCount: 2,
-          backgroundCardScale: 0.91,
-          backgroundCardOffset: const Offset(0, 16),
-          swipeOptions: const SwipeOptions.only(
-            up: true,
-            right: true,
-            left: true,
-            down: true,          ),
-          loop: true,
-          cardBuilder: (BuildContext context, int index) {
-            return _buildSwiperItem(context: context);
-          },
+        child: Showcase(
+          key: ShowcaseViewUtil.one,
+          description: '轮播图，显示一些鸡汤',
+          child: AppinioSwiper(
+            cardCount: 10,
+            backgroundCardCount: 2,
+            backgroundCardScale: 0.91,
+            backgroundCardOffset: const Offset(0, 16),
+            swipeOptions: const SwipeOptions.only(
+              up: true,
+              right: true,
+              left: true,
+              down: true,
+            ),
+            loop: true,
+            cardBuilder: (BuildContext context, int index) {
+              return _buildSwiperItem(context: context);
+            },
+          ),
         ),
       ),
     );

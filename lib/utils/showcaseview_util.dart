@@ -1,3 +1,4 @@
+import 'package:emoti/packages.dart';
 import 'package:flutter/material.dart';
 
 
@@ -15,4 +16,8 @@ class ShowcaseViewUtil {
   static GlobalKey one = GlobalKey();
   static GlobalKey two = GlobalKey();
   static GlobalKey three = GlobalKey();
+
+  void showShowcaseView(BuildContext context){
+    ShowCaseWidget.of(context).startShowCase([one, two, three]);
+  }
 }

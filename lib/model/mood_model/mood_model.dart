@@ -15,11 +15,6 @@ String moodModelToJson(MoodModel data) => json.encode(data.toJson());
 @freezed
 class MoodModel with _$MoodModel {
   const factory MoodModel({
-    @JsonKey(
-      name: "id",
-      defaultValue: "0",
-    )
-    required int id,
     @JsonKey(name: "MoodCategoryData")
     required MoodCategoryData moodCategoryData,
   }) = _MoodModel;
@@ -31,7 +26,6 @@ class MoodModel with _$MoodModel {
 @freezed
 class MoodCategoryData with _$MoodCategoryData {
   const factory MoodCategoryData({
-    @JsonKey(name: "id") required String id,
     @JsonKey(name: "local_icon") required String localIcon,
     @JsonKey(name: "remote_icon") required String remoteIcon,
     @JsonKey(name: "title") required String title,

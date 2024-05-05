@@ -1,6 +1,7 @@
 import 'package:emoti/model/mood_model/mood_model.dart';
 import 'package:emoti/packages.dart';
-import 'package:emoti/pages/home/child/index/index_logic.dart';
+import 'package:emoti/router/router.dart';
+import 'package:emoti/tools/mood_category/mood_category_tool.dart';
 import 'package:flutter/material.dart';
 
 class IndexRecoed extends StatelessWidget {
@@ -25,30 +26,30 @@ class IndexRecoed extends StatelessWidget {
           const PlaceholderWidget(
             height: 16,
           ),
-          SizedBox(
-            width: double.infinity,
-            height: 95,
-            child: GetBuilder<IndexLogic>(
-              builder: (controller) {
-                return ListView.separated(
-                  padding: const EdgeInsets.all(0),
-                  scrollDirection: Axis.horizontal,
-                  separatorBuilder: (context, index) {
-                    return const SizedBox(
-                      width: 16,
-                    );
-                  },
-                  itemBuilder: (context, index) {
-                    MoodCategoryData item =
-                        controller.state.emojiCategoryList[index];
-                    return _moodListItem(
-                      index,
-                      item,
-                    );
-                  },
-                  itemCount: controller.state.emojiCategoryList.length,
-                );
-              },
+          Showcase(
+            key: ShowcaseViewUtil.two,
+            description: '',
+            child: SizedBox(
+              width: double.infinity,
+              height: 95,
+              child: ListView.separated(
+                padding: const EdgeInsets.all(0),
+                scrollDirection: Axis.horizontal,
+                separatorBuilder: (context, index) {
+                  return const SizedBox(
+                    width: 16,
+                  );
+                },
+                itemBuilder: (context, index) {
+                  MoodCategoryData item =
+                      MoodCategoryTool.moodCategoryData[index];
+                  return _moodListItem(
+                    index,
+                    item,
+                  );
+                },
+                itemCount: MoodCategoryTool.moodCategoryData.length,
+              ),
             ),
           ),
           const PlaceholderWidget(
@@ -60,41 +61,46 @@ class IndexRecoed extends StatelessWidget {
   }
 
   Widget _moodListItem(int index, MoodCategoryData item) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(13), // if you need this
-        side: BorderSide(
-          color: Colors.grey.withOpacity(0.4),
-          width: 1,
+    return InkWell(
+      onTap: () {
+        Get.toNamed(AppPaths().emotiCreate, arguments: item);
+      },
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(13), // if you need this
+          side: BorderSide(
+            color: Colors.grey.withOpacity(0.4),
+            width: 1,
+          ),
         ),
-      ),
-      child: Builder(builder: (context) {
-        return SizedBox(
-          width: 85,
-          height: 85,
-          child: Padding(
-            padding: const EdgeInsets.all(5),
-            child: Column(
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(5),
-                    child: Image.asset(
-                      item.localIcon,
+        child: Builder(builder: (context) {
+          return SizedBox(
+            width: 85,
+            height: 85,
+            child: Padding(
+              padding: const EdgeInsets.all(5),
+              child: Column(
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(5),
+                      child: Image.asset(
+                        item.localIcon,
+                      ),
                     ),
                   ),
-                ),
-                Text(
-                  item.title,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: context.theme.textTheme.bodyLarge,
-                ),
-              ],
+                  Text(
+                    item.title,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: context.theme.textTheme.bodyLarge,
+                  ),
+                ],
+              ),
             ),
-          ),
-        );
-      }),
+          );
+        }),
+      ),
     );
   }
 }

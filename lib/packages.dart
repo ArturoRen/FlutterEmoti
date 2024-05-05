@@ -1,11 +1,12 @@
-
 export 'package:flutter_screenutil/flutter_screenutil.dart';
 export 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
-export  'package:get/get.dart';
+export 'package:get/get.dart';
 export 'package:shared_preferences/shared_preferences.dart';
 export 'package:appinio_swiper/appinio_swiper.dart';
 export 'package:auto_size_text/auto_size_text.dart';
 export 'package:showcaseview/showcaseview.dart';
+export 'package:sqflite/sqflite.dart';
+export 'package:permission_handler/permission_handler.dart';
 //tool
 export 'package:emoti/tools/smart_dialog/smart_dialog.dart';
 //isolate

@@ -20,8 +20,6 @@ MoodModel _$MoodModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MoodModel {
-  @JsonKey(name: "id")
-  int get id => throw _privateConstructorUsedError;
   @JsonKey(name: "MoodCategoryData")
   MoodCategoryData get moodCategoryData => throw _privateConstructorUsedError;
 
@@ -37,8 +35,7 @@ abstract class $MoodModelCopyWith<$Res> {
       _$MoodModelCopyWithImpl<$Res, MoodModel>;
   @useResult
   $Res call(
-      {@JsonKey(name: "id") int id,
-      @JsonKey(name: "MoodCategoryData") MoodCategoryData moodCategoryData});
+      {@JsonKey(name: "MoodCategoryData") MoodCategoryData moodCategoryData});
 
   $MoodCategoryDataCopyWith<$Res> get moodCategoryData;
 }
@@ -56,14 +53,9 @@ class _$MoodModelCopyWithImpl<$Res, $Val extends MoodModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
     Object? moodCategoryData = null,
   }) {
     return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
       moodCategoryData: null == moodCategoryData
           ? _value.moodCategoryData
           : moodCategoryData // ignore: cast_nullable_to_non_nullable
@@ -89,8 +81,7 @@ abstract class _$$MoodModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "id") int id,
-      @JsonKey(name: "MoodCategoryData") MoodCategoryData moodCategoryData});
+      {@JsonKey(name: "MoodCategoryData") MoodCategoryData moodCategoryData});
 
   @override
   $MoodCategoryDataCopyWith<$Res> get moodCategoryData;
@@ -107,14 +98,9 @@ class __$$MoodModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
     Object? moodCategoryData = null,
   }) {
     return _then(_$MoodModelImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
       moodCategoryData: null == moodCategoryData
           ? _value.moodCategoryData
           : moodCategoryData // ignore: cast_nullable_to_non_nullable
@@ -127,22 +113,18 @@ class __$$MoodModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MoodModelImpl implements _MoodModel {
   const _$MoodModelImpl(
-      {@JsonKey(name: "id") required this.id,
-      @JsonKey(name: "MoodCategoryData") required this.moodCategoryData});
+      {@JsonKey(name: "MoodCategoryData") required this.moodCategoryData});
 
   factory _$MoodModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$MoodModelImplFromJson(json);
 
-  @override
-  @JsonKey(name: "id")
-  final int id;
   @override
   @JsonKey(name: "MoodCategoryData")
   final MoodCategoryData moodCategoryData;
 
   @override
   String toString() {
-    return 'MoodModel(id: $id, moodCategoryData: $moodCategoryData)';
+    return 'MoodModel(moodCategoryData: $moodCategoryData)';
   }
 
   @override
@@ -150,14 +132,13 @@ class _$MoodModelImpl implements _MoodModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MoodModelImpl &&
-            (identical(other.id, id) || other.id == id) &&
             (identical(other.moodCategoryData, moodCategoryData) ||
                 other.moodCategoryData == moodCategoryData));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, moodCategoryData);
+  int get hashCode => Object.hash(runtimeType, moodCategoryData);
 
   @JsonKey(ignore: true)
   @override
@@ -175,16 +156,12 @@ class _$MoodModelImpl implements _MoodModel {
 
 abstract class _MoodModel implements MoodModel {
   const factory _MoodModel(
-      {@JsonKey(name: "id") required final int id,
-      @JsonKey(name: "MoodCategoryData")
+      {@JsonKey(name: "MoodCategoryData")
       required final MoodCategoryData moodCategoryData}) = _$MoodModelImpl;
 
   factory _MoodModel.fromJson(Map<String, dynamic> json) =
       _$MoodModelImpl.fromJson;
 
-  @override
-  @JsonKey(name: "id")
-  int get id;
   @override
   @JsonKey(name: "MoodCategoryData")
   MoodCategoryData get moodCategoryData;
@@ -200,8 +177,6 @@ MoodCategoryData _$MoodCategoryDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MoodCategoryData {
-  @JsonKey(name: "id")
-  String get id => throw _privateConstructorUsedError;
   @JsonKey(name: "local_icon")
   String get localIcon => throw _privateConstructorUsedError;
   @JsonKey(name: "remote_icon")
@@ -222,8 +197,7 @@ abstract class $MoodCategoryDataCopyWith<$Res> {
       _$MoodCategoryDataCopyWithImpl<$Res, MoodCategoryData>;
   @useResult
   $Res call(
-      {@JsonKey(name: "id") String id,
-      @JsonKey(name: "local_icon") String localIcon,
+      {@JsonKey(name: "local_icon") String localIcon,
       @JsonKey(name: "remote_icon") String remoteIcon,
       @JsonKey(name: "title") String title});
 }
@@ -241,16 +215,11 @@ class _$MoodCategoryDataCopyWithImpl<$Res, $Val extends MoodCategoryData>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
     Object? localIcon = null,
     Object? remoteIcon = null,
     Object? title = null,
   }) {
     return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
       localIcon: null == localIcon
           ? _value.localIcon
           : localIcon // ignore: cast_nullable_to_non_nullable
@@ -276,8 +245,7 @@ abstract class _$$MoodCategoryDataImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "id") String id,
-      @JsonKey(name: "local_icon") String localIcon,
+      {@JsonKey(name: "local_icon") String localIcon,
       @JsonKey(name: "remote_icon") String remoteIcon,
       @JsonKey(name: "title") String title});
 }
@@ -293,16 +261,11 @@ class __$$MoodCategoryDataImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
     Object? localIcon = null,
     Object? remoteIcon = null,
     Object? title = null,
   }) {
     return _then(_$MoodCategoryDataImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
       localIcon: null == localIcon
           ? _value.localIcon
           : localIcon // ignore: cast_nullable_to_non_nullable
@@ -323,17 +286,13 @@ class __$$MoodCategoryDataImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MoodCategoryDataImpl implements _MoodCategoryData {
   const _$MoodCategoryDataImpl(
-      {@JsonKey(name: "id") required this.id,
-      @JsonKey(name: "local_icon") required this.localIcon,
+      {@JsonKey(name: "local_icon") required this.localIcon,
       @JsonKey(name: "remote_icon") required this.remoteIcon,
       @JsonKey(name: "title") required this.title});
 
   factory _$MoodCategoryDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$MoodCategoryDataImplFromJson(json);
 
-  @override
-  @JsonKey(name: "id")
-  final String id;
   @override
   @JsonKey(name: "local_icon")
   final String localIcon;
@@ -346,7 +305,7 @@ class _$MoodCategoryDataImpl implements _MoodCategoryData {
 
   @override
   String toString() {
-    return 'MoodCategoryData(id: $id, localIcon: $localIcon, remoteIcon: $remoteIcon, title: $title)';
+    return 'MoodCategoryData(localIcon: $localIcon, remoteIcon: $remoteIcon, title: $title)';
   }
 
   @override
@@ -354,7 +313,6 @@ class _$MoodCategoryDataImpl implements _MoodCategoryData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MoodCategoryDataImpl &&
-            (identical(other.id, id) || other.id == id) &&
             (identical(other.localIcon, localIcon) ||
                 other.localIcon == localIcon) &&
             (identical(other.remoteIcon, remoteIcon) ||
@@ -364,8 +322,7 @@ class _$MoodCategoryDataImpl implements _MoodCategoryData {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, localIcon, remoteIcon, title);
+  int get hashCode => Object.hash(runtimeType, localIcon, remoteIcon, title);
 
   @JsonKey(ignore: true)
   @override
@@ -384,8 +341,7 @@ class _$MoodCategoryDataImpl implements _MoodCategoryData {
 
 abstract class _MoodCategoryData implements MoodCategoryData {
   const factory _MoodCategoryData(
-          {@JsonKey(name: "id") required final String id,
-          @JsonKey(name: "local_icon") required final String localIcon,
+          {@JsonKey(name: "local_icon") required final String localIcon,
           @JsonKey(name: "remote_icon") required final String remoteIcon,
           @JsonKey(name: "title") required final String title}) =
       _$MoodCategoryDataImpl;
@@ -393,9 +349,6 @@ abstract class _MoodCategoryData implements MoodCategoryData {
   factory _MoodCategoryData.fromJson(Map<String, dynamic> json) =
       _$MoodCategoryDataImpl.fromJson;
 
-  @override
-  @JsonKey(name: "id")
-  String get id;
   @override
   @JsonKey(name: "local_icon")
   String get localIcon;

@@ -8,20 +8,27 @@ class BoardingHelpWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Stack(
-        alignment: Alignment.bottomCenter,
-        children: [
-          SizedBox(
-            width:60,
-            height: 100,
-            child: CustomPaint(
-              painter: WaveCurvePainter(
-                context.theme.primaryColor,
+    return InkWell(
+      onTap: (){
+        ShowcaseViewUtil.instance.showShowcaseView(context);
+      },
+      child: Card(
+        elevation: 2,
+        child: Stack(
+          alignment: Alignment.bottomCenter,
+          children: [
+            SizedBox(
+              width: double.infinity,
+              height: 170,
+              child: CustomPaint(
+                size: const Size(double.infinity, 170),
+                painter: WaveCurvePainter(
+                  context.theme.primaryColor.withOpacity(.5),
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -44,17 +51,6 @@ class WaveCurvePainter extends CustomPainter {
       ..style = PaintingStyle.fill;
     Path path = Path();
 
-    // 绘制背景圆角矩形
-    Rect bgRect = Rect.fromLTRB(0, 0, size.width, size.height);
-    RRect bgRRect = RRect.fromRectAndCorners(
-      bgRect,
-      // 可以指定需要的圆角大小
-      bottomLeft: const Radius.circular(13),
-      bottomRight: const Radius.circular(13),
-      topLeft: const Radius.circular(13),
-      topRight: const Radius.circular(13),
-    );
-    canvas.drawRRect(bgRRect, paint);
 
     // 移动到左上角
     path.moveTo(0, size.height * 0.5);

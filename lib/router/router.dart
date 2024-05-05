@@ -1,6 +1,8 @@
 import 'package:emoti/packages.dart';
 import 'package:emoti/pages/boarding/boarding_binding.dart';
 import 'package:emoti/pages/boarding/boarding_view.dart';
+import 'package:emoti/pages/emoti/emoti_create/emoti_binding.dart';
+import 'package:emoti/pages/emoti/emoti_create/emoti_create_view.dart';
 import 'package:emoti/pages/home/child/mine/child/mine_setting/mine_binding.dart';
 import 'package:emoti/pages/home/child/mine/child/mine_setting/mine_setting_view.dart';
 import 'package:emoti/pages/home/home_binding.dart';
@@ -20,7 +22,8 @@ class AppPaths {
   String setting = '/setting';
   //引导页
   String onboarding = '/onboarding';
-  
+  //创建日记
+  String emotiCreate = '/emoti_create';
 }
 
 class AppRoutes {
@@ -46,10 +49,15 @@ class AppRoutes {
       page: () => const MineSettingPage(),
       binding: MineSettingBinding(),
     ),
-     GetPage(
+    GetPage(
       name: AppPaths().onboarding,
       page: () => const BoardingPage(),
       binding: BoardingBinding(),
+    ),
+    GetPage(
+      name: AppPaths().emotiCreate,
+      page: () => const EmotiCreatePage(),
+      binding: EmotiBinding(),
     ),
   ];
 }

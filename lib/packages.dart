@@ -7,6 +7,8 @@ export 'package:auto_size_text/auto_size_text.dart';
 export 'package:showcaseview/showcaseview.dart';
 export 'package:sqflite/sqflite.dart';
 export 'package:permission_handler/permission_handler.dart';
+export 'package:device_info_plus/device_info_plus.dart';
+export 'package:image_picker/image_picker.dart';
 //tool
 export 'package:emoti/tools/smart_dialog/smart_dialog.dart';
 //isolate

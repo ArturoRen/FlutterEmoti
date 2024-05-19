@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:emoti/packages.dart';
 import 'package:emoti/tools/sqflite/base_entity.dart';
+import 'package:emoti/tools/sqflite/table/emotion_table.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DataBaseTool {
@@ -23,6 +24,8 @@ class DataBaseTool {
   final List<SqlBaseEntity> _mapperList = [];
 
   Future<void> initData() async {
+    //必须先初始化表单例
+    EmotionTable();
     String path = await getDatabasesPath();
     _database = await openDatabase(
       '$path${Platform.pathSeparator}$_dbName',

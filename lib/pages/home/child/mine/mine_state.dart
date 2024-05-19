@@ -46,7 +46,7 @@ class MineState {
       "about",
       throttleCall(
         () {
-          debugPrint("234342323");
+          SmartDialog.showToast("No About");
         },
         const Duration(milliseconds: 600),
       ),

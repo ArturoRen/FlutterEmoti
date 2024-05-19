@@ -1,4 +1,6 @@
+import 'package:emoti/tools/device_info/device_info_tool.dart';
 import 'package:emoti/tools/sp_tool/sp_tool.dart';
+import 'package:emoti/tools/sqflite/data_base_tool.dart';
 import 'package:emoti/translate/translations.dart';
 import 'package:flutter/widgets.dart';
 
@@ -24,6 +26,10 @@ class AppGlobal {
     //初始化sp缓存
     await SpTool().init();
     //获取缓存语言
+    //设备信息初始化
+    await DeviceInfoManager.instance.getDeviceInfo();
+    //数据库初始化
+    await DataBaseTool().initData();
   }
 
   bool get isAccessibilityEnabled {

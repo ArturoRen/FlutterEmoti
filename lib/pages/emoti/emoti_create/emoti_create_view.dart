@@ -3,6 +3,7 @@ import 'dart:math' as math;
 
 import 'package:emoti/packages.dart';
 import 'package:emoti/pages/emoti/emoti_create/emoti_create_logic.dart';
+import 'package:emoti/pages/emoti/emoti_create/widget/mood_pic.dart';
 import 'package:emoti/pages/emoti/emoti_create/widget/mood_select.dart';
 import 'package:emoti/pages/emoti/emoti_create/widget/mood_text.dart';
 import 'package:emoti/translate/translations.dart';
@@ -130,7 +131,7 @@ class _EmotiCreatePageState extends State<EmotiCreatePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.transparent,
+      // backgroundColor: Colors.transparent,
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Colors.transparent,
@@ -222,7 +223,10 @@ class _EmotiCreatePageState extends State<EmotiCreatePage> {
                 delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index) {
                     if (controller.state.selectPicList.length > index) {
-                      return const SizedBox();
+                      String path = controller.state.selectPicList[index];
+                      return MoodPicWidget(
+                        filePath: path,
+                      );
                     } else {
                       return InkWell(
                         onTap: () {

@@ -1,8 +1,11 @@
+import 'dart:async';
 import 'dart:io';
-
 import 'package:emoti/packages.dart';
+import 'package:emoti/tools/device_info/device_info_tool.dart';
+import 'package:emoti/tools/path_provider/file_patth.dart';
 import 'package:emoti/utils/permission_utils.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:image_picker/image_picker.dart';
 
 import 'emoti_create_state.dart';
 
@@ -13,13 +16,17 @@ class EmotiCreateLogic extends GetxController {
   final state = EmotiCreateState();
 
   //请求权限方法
-  void voidrequestPermission(BuildContext context, Permission permission) {
+  void voidrequestPermission(
+    BuildContext context,
+    Permission permission,
+    FutureOr<void>? Function()? grantedCall,
+  ) {
     permission
         .onDeniedCallback(() {
           //拒绝
           permissionToAppSetting(context, permission);
         })
-        .onGrantedCallback(showSwitchPic)
+        .onGrantedCallback(grantedCall)
         .onLimitedCallback(() {
           //受限制
           noPermissionDialog(context, permission);
@@ -56,12 +63,32 @@ class EmotiCreateLogic extends GetxController {
                 child: CupertinoButton(
                   onPressed: () {
                     if (Platform.isAndroid) {
-                      debugPrint(Platform.operatingSystemVersion);
-                      debugPrint(Platform.operatingSystem);
-                      debugPrint(Platform.version);
+                      DeviceInfoManager.instance.getDeviceInfo().then(
+                        (deviceInfo) {
+                          AndroidDeviceInfo androidDeviceInfo =
+                              AndroidDeviceInfo.fromMap(deviceInfo.data);
+                          if (androidDeviceInfo.version.sdkInt <= 32) {
+                            voidrequestPermission(
+                              context,
+                              Permission.storage,
+                              selectPhotos,
+                            );
+                          } else {
+                            voidrequestPermission(
+                              context,
+                              Permission.photos,
+                              selectPhotos,
+                            );
+                          }
+                        },
+                      );
                     }
                     if (Platform.isIOS) {
-                      voidrequestPermission(context, Permission.photos);
+                      voidrequestPermission(
+                        context,
+                        Permission.photos,
+                        selectPhotos,
+                      );
                     }
                   },
                   color: context.theme.primaryColor.withOpacity(.5),
@@ -82,8 +109,13 @@ class EmotiCreateLogic extends GetxController {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: CupertinoButton(
-                  onPressed: () =>
-                      voidrequestPermission(context, Permission.camera),
+                  onPressed: () {
+                    voidrequestPermission(
+                      context,
+                      Permission.camera,
+                      selectCamera,
+                    );
+                  },
                   color: context.theme.primaryColor.withOpacity(.5),
                   child: const SizedBox(
                     width: double.infinity,
@@ -106,5 +138,33 @@ class EmotiCreateLogic extends GetxController {
       debounce: true,
       alignment: Alignment.bottomCenter,
     );
+  }
+
+  //去选择图片
+  Future<void> selectPhotos() async {
+    final ImagePicker picker = ImagePicker();
+    XFile? resultXfile = await picker.pickImage(source: ImageSource.gallery);
+    if (resultXfile != null) {
+      String? picFilePath = await FilePathSingleton().saveFile(resultXfile);
+      state.selectPicList.addIf(
+        picFilePath != null && picFilePath.isNotEmpty,
+        picFilePath!,
+      );
+      update();
+    }
+  }
+
+  //去拍照片
+  Future<void> selectCamera() async {
+    final ImagePicker picker = ImagePicker();
+    XFile? resultXfile = await picker.pickImage(source: ImageSource.camera);
+    if (resultXfile != null) {
+     String? picFilePath = await FilePathSingleton().saveFile(resultXfile);
+      state.selectPicList.addIf(
+        picFilePath != null && picFilePath.isNotEmpty,
+        picFilePath!,
+      );
+      update();
+    }
   }
 }

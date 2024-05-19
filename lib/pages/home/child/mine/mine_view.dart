@@ -1,6 +1,5 @@
 import 'package:emoti/packages.dart';
 import 'package:emoti/pages/home/child/mine/widget/mine_fun.dart';
-import 'package:emoti/pages/home/child/mine/widget/mine_info.dart';
 import 'package:flutter/material.dart';
 
 import 'mine_logic.dart';
@@ -34,8 +33,6 @@ class MinePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          //用户信息
-          MineInfo(),
           //列表项
           MineFun(),
         ],
